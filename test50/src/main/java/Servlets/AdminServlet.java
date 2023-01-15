@@ -15,13 +15,16 @@ import javax.servlet.http.HttpSession;
 
 
 import Dao.CategoryDao;
+import Dao.ProductDao;
 import models.Category;
+import models.Product;
 
 
 @WebServlet(urlPatterns = { 
 		"/admin/index", "/admin/categories-list", "/admin/add-category",
 		"/admin/delete-category","/admin/update-category",
-		"/admin/save-category"})
+		"/admin/save-category","/admin/list-products","/admin/add-new-product",
+"/admin/save-product"})
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,12 +57,101 @@ public class AdminServlet extends HttpServlet {
 		case "/admin/save-category":
 			SaveCategory(request, response);
 			break;
-
+			
+//************products 
+			
+		case "/admin/list-products":
+			ProductsList(request, response);
+			break;
+		case "/admin/add-new-product":
+			System.out.println("in swithc");
+			AddNewProduct(request, response);
+			break;
+		case "/admin/save-product":
+			
+			try {
+				SaveProduct(request, response);
+			} catch (SQLException | ServletException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			break;
 
 		default:
 			// index(request, response);
 		}
 	}
+
+							private void SaveProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+								System.out.println("OK");
+								ProductDao productDao=new ProductDao();
+								
+									//String categoryName = (String) request.getParameter("name");
+								          
+									
+									 String name       = (String) request.getParameter("name");        
+									 String description = (String) request.getParameter("description"); 
+									 String photo_path = (String) request.getParameter("photo_path");  
+									 double price      = Double.valueOf( request.getParameter("price"));       
+									 int stock_number = Integer.parseInt(request.getParameter("stock_number")); 
+									 String val=(String) request.getParameter("is_in_stock");
+									 boolean is_in_stock = val=="true"?true:false;
+									 int    category_id = Integer.parseInt( request.getParameter("category_id"));
+									 
+									 
+									 int    supplier_id = Integer.parseInt(request.getSession().getAttribute("UserId").toString()); 
+									                     
+								
+								Product newProduct=new Product(name,description,photo_path,price,stock_number,is_in_stock,category_id,supplier_id);
+								
+								
+								RequestDispatcher dispatcher = request.getRequestDispatcher("../admin/product-form.jsp");
+								try {
+									productDao.insertProduct(newProduct);
+									dispatcher.forward(request, response);
+								} catch (ServletException | IOException e) {
+									e.printStackTrace();
+								}
+								catch (SQLException e) {
+									e.printStackTrace();
+								}
+								
+								
+								
+							}
+
+	private void AddNewProduct(HttpServletRequest request, HttpServletResponse response) throws IOException  {
+		/*CategoryDao c=new CategoryDao();
+		c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute("UserId").toString()));
+		request.setAttribute("categories", c);*/
+	
+	
+	RequestDispatcher dispatcher = request.getRequestDispatcher("../admin/product-form.jsp");
+	try {
+		dispatcher.forward(request, response);
+	} catch (ServletException | IOException e) {
+		e.printStackTrace();
+	}
+	
+		}
+																
+																private void ProductsList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+																
+																	ProductDao productDao = new ProductDao();
+																	int supllier_id= Integer.parseInt(request.getSession().getAttribute("UserId").toString());
+																	List<Product> products = productDao.ListAllProducts(supllier_id);
+																	products.forEach(System.out::println);
+																
+																	request.setAttribute("products", products);
+																	RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/product-list.jsp");
+																	dispatcher.forward(request, response);
+																		
+																	}
+
+
+
+
 
 private void SaveCategory(HttpServletRequest request, HttpServletResponse response) {
 	CategoryDao categoryDao = new CategoryDao();

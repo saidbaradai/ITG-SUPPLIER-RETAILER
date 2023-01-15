@@ -29,7 +29,7 @@
 
 		</div>
 	</div>
-	<a href="admin/category-form.jsp">Insert</a>
+
 
 
 </body>

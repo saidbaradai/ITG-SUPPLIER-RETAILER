@@ -36,7 +36,7 @@ public class adminFilter extends HttpFilter implements Filter {
 	        } else {
 	            chain.doFilter(req, res);
 	        }
-		chain.doFilter(request, response);
+		//chain.doFilter(request, response);
 	}
 
 	

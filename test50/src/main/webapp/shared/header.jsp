@@ -19,17 +19,17 @@
         <a class="nav-link" href="<%=request.getContextPath()%>/admin/categories-list">Categories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Products</a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/admin/list-products">Products</a>
       </li>
     </ul>
     <span class="navbar-text">
-     admin:<%=session.getAttribute("userName")%>
-     Id:<%=session.getAttribute("UserId")%>
+     Admin : <%=session.getAttribute("userName")%> 
+   
     </span>
     
-     <span class="navbar-text">
-    <form action="logout" method="post">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+     <span class="navbar-text font-weight-bold">
+    <form action="<%=request.getContextPath()%>/logout" method="post">
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Logout</button>
 </form>
 
 
