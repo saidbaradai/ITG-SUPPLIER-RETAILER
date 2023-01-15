@@ -77,7 +77,7 @@
     <% 
     CategoryDao c=new CategoryDao();
 
-		List<Category> categories2=c.ListAllCategories();%>
+		List<Category> categories2=c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute("UserId").toString()));%>
 
       
 		<%

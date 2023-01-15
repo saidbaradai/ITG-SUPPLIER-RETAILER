@@ -1,10 +1,12 @@
 package Dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import models.Category;
 import models.User;
 
 public class UserDao {
@@ -41,5 +43,48 @@ public class UserDao {
 			e.printStackTrace();
 		}
 		return "Invalid user credentials";
+	}
+
+
+	public String SaveNewUser(User user) {
+
+		Connection con = null;
+		PreparedStatement statement = null;
+
+		try {
+			con = DbConnection.getConnection();
+			statement = con.prepareStatement("INSERT INTO users (name, email, password, role) VALUES(?, ?, ?, ?);");
+			statement.setString(1, user.getName());
+			statement.setString(2, user.getEmail());
+			statement.setString(3, user.getPassword());
+			statement.setString(4, user.getRole());
+			statement.executeUpdate();
+			statement.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "err while saving user";
+	}
+
+
+	public int getUserIdByname(String username) throws SQLException {
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		int user_id = 0;
+
+		con = DbConnection.getConnection();
+		statement =con.prepareStatement("select user_id from users where name=?;");
+		statement.setString(1,username);
+		rs = statement.executeQuery();
+		
+		
+		 while (rs.next()) {
+              user_id = rs.getInt("user_id");
+
+         }
+		return user_id;
+		
 	}
 }

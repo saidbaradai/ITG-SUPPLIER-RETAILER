@@ -15,7 +15,7 @@
 <%
 CategoryDao c=new CategoryDao();
 
-		List<Category> categories2=c.ListAllCategories();%>
+		List<Category> categories2=c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute("UserId").toString()));%>
 
 <a href="#" class="list-group-item list-group-item-action  ">
 			All Products

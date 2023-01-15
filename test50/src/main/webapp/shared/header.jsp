@@ -10,24 +10,25 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/admin/index">Dashboard <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../admin/categories-list">Categories</a>
+        <a class="nav-link" href="<%=request.getContextPath()%>/admin/categories-list">Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Products</a>
       </li>
     </ul>
     <span class="navbar-text">
-     admin:<%=request.getAttribute("userName")%>
+     admin:<%=session.getAttribute("userName")%>
+     Id:<%=session.getAttribute("UserId")%>
     </span>
     
      <span class="navbar-text">
-     <form action="logout" method="post">
+    <form action="logout" method="post">
 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
 </form>
 

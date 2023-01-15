@@ -10,25 +10,33 @@ import java.util.List;
 import models.Category;
 
 public class CategoryDao {
-    private static final String INSERT_CATEGORY_SQL = "INSERT INTO categories (name) VALUES (?);";
+    private static final String INSERT_CATEGORY_SQL = "INSERT INTO categories (name,supplier_id) VALUES (?,?);";
 	private static final String SELECT_CATEGORY_BY_ID = "select category_id ,name from categories where category_id =?;";
-    private static final String SELECT_ALL_CATEGORIES = "select * from categories";
+    private static final String SELECT_ALL_CATEGORIES = "select * from categories where supplier_id=?";
     private static final String DELETE_CATEGORIES_SQL = "DELETE FROM categories WHERE category_id = ? ;";
     private static final String UPDATE_CATEGORIES_SQL = "update categories set name = ? where category_id = ?;";
-
+    private static final String INSERT_USER_CATEGORY_SQL = "uINSERT INTO user_category (category_id,user_id) VALUES (22,1);";
 
     
+
     //insert category 
-    public void insertCategory(Category category) throws SQLException {
+    public void insertCategory(Category category ) throws SQLException {
         System.out.println(INSERT_CATEGORY_SQL);
         try (Connection connection =DbConnection.getConnection();
         	PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CATEGORY_SQL)) {
             preparedStatement.setString(1, category.getName());
+            preparedStatement.setInt(2, category.getSupplier_id());
             System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+
+        
+       
+        
     }
    
     									//delete category 
@@ -45,10 +53,11 @@ public class CategoryDao {
 									    }
 									    
 	//get all categories
-    public  List<Category> ListAllCategories() {
+    public  List<Category> ListAllCategories(int supplier_id) {
         List<Category> categories = new ArrayList<> ();
         try (Connection connection = DbConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CATEGORIES);) {
+        	preparedStatement.setInt(1, supplier_id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("category_id");

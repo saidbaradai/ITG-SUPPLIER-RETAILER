@@ -10,6 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 
 import Dao.CategoryDao;
 import models.Category;
@@ -25,6 +28,7 @@ public class AdminServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 
 		String action = request.getServletPath();
 		System.out.println(action);
@@ -112,8 +116,14 @@ private void SaveCategory(HttpServletRequest request, HttpServletResponse respon
 		
 		String categoryName = (String) request.getParameter("categoryName");
 		c.setName(categoryName);
+		int supllier_id= Integer.parseInt(request.getSession().getAttribute("UserId").toString());
+		c.setSupplier_id(supllier_id);
+		
+		System.out.println((String) request.getAttribute("userName"));
+
 
 		try {
+
 			categoryDao.insertCategory(c);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -151,8 +161,8 @@ private void SaveCategory(HttpServletRequest request, HttpServletResponse respon
 	private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		CategoryDao c = new CategoryDao();
-
-		List<Category> categories = c.ListAllCategories();
+		int supllier_id= Integer.parseInt(request.getSession().getAttribute("UserId").toString());
+		List<Category> categories = c.ListAllCategories(supllier_id);
 		categories.forEach(System.out::println);
 
 		request.setAttribute("categoriy", categories);
