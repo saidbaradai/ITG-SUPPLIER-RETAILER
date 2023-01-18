@@ -46,19 +46,22 @@
 		  <c:forEach items="${products }" var="product">
 		    <tr>
 		      <td>
-					<img src="../images/note9.jpg" width="40px">
+					<!-- <img src="../images/note9.jpg" width="40px"> -->
+					<img src="<%=request.getContextPath()+"/"%>${product.photo_path}"  width="40px">
+					
+				
 		      </td>
 		      <td>${product.name }</td>
 		      <td>${product.description}</td>
-		       <td>${product.price}</td>
+		       <td>${product.price} $</td>
 		      <td>${product.stock_number }</td>
 		      <td>${product.is_in_stock}</td>
 		       <td>${product.category_id}</td>
 		      <td>
-		      	<a href="#" class="btn btn-warning">Update</a>
+		      	<a href="../admin/update-product?product_id=${product.product_id}" class="btn btn-warning">Update</a>
 		      </td>
 		      <td>
-		      	<a href="#" class="btn btn-danger">Delete</a>
+		      	<a href="../admin/delete-product?product_id=${product.product_id}" class="btn btn-danger">Delete</a>
 		      </td>
 		    </tr>
 		  </c:forEach>

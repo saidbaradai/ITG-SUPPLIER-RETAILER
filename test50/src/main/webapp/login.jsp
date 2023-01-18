@@ -12,19 +12,28 @@
 	href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
 <!-- Main css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 	<div class="main">
-
+	
+						
 		<!-- Sing in  Form -->
 		<section class="sign-in">
+		<%if(request.getAttribute("SigninErrMessage")!=null){ %>
+			<div class="alert alert-danger" role="alert">
+						User name or password are invalid! Try again
+			</div>
+			<%} %>
 			<div class="container">
+			
 				<div class="signin-content">
 					<div class="signin-image">
 						<figure>
-							<img src="images/signin-image.jpg" alt="sing up image">
+							<img src="images/login-img.jpg" alt="sing up image">
 						</figure>
 						<a href="registration.jsp" class="signup-image-link">Create an
 							account</a>

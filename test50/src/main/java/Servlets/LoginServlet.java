@@ -87,7 +87,8 @@ public class LoginServlet extends HttpServlet {
 		        {
 		        	
 		            System.out.println("Error message = "+userValidate);
-		            request.setAttribute("errMessage", userValidate);
+		            
+		            request.setAttribute("SigninErrMessage", userValidate);
 		            
 		         
 //need some validation code

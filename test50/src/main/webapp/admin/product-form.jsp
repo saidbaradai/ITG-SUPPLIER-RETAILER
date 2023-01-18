@@ -1,3 +1,4 @@
+<%@page import="models.Product"%>
 <%@page import="models.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="Dao.CategoryDao"%>
@@ -20,68 +21,77 @@
 
 
 	<div class="container ">
-	<div class="col-md-6">
-		<form action="../admin/save-product" method="get">
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">Product name</label>
-			    <input type="text" class="form-control"   name="name" required	>
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">description</label>
-			    <input type="text" class="form-control"   name="description" required>
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">photo path</label>
-			    <input type="text" class="form-control"   name="photo_path" required>
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">price</label>
-			    <input type="number" step="0.01"class="form-control"   name="price" required>
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleInputEmail1">stock_number</label>
-			    <input type="number" class="form-control"   name="stock_number" required>
-			  </div>
-			  
-			  
-			  
-			  <div class="form-group">
-			    <label for="">Category</label>
-			    
-			    <% CategoryDao c=new CategoryDao();
-
-				List<Category> categories=c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute("UserId").toString()));%>
-
-			     <select name="category_id" class="form-control" required >
-				     <option disabled selected value> -- select a category -- </option>
-				     <%
-						for (int i = 0; i < categories.size(); i++) {
-						%>
-							<option value=<%out.println(categories.get(i).getCategory_id());%>>
-								 <%out.println(categories.get(i).getName());%>
-							 </option>
-						<%
-						}
-						%>
-				 </select>
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="">Is in stock? </label><br>
-			    <input name="is_in_stock" type="radio" value="true" required  /> Yes<br>
-				<input name="is_in_stock" type="radio" value="false" required /> No
-			    
-			  </div>
+		<div class="row">
+				<div class="col-md-6">
+					<form action="../admin/save-product" method="post" enctype='multipart/form-data'>
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">Product name</label>
+						    <input type="text" class="form-control"   name="name" required	>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">description</label>
+						    <input type="text" class="form-control"   name="description" required>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">price</label>
+						    <input type="number" step="0.01"class="form-control"   name="price" required>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">stock_number</label>
+						    <input type="number" class="form-control"   name="stock_number" required>
+						  </div>
+						  
+						  
+						  
+						  <div class="form-group">
+						    <label for="">Category</label>
+						    
+						    <% CategoryDao c=new CategoryDao();
 			
-			  
-			  
-			  <button type="submit" class="btn btn-primary">Submit</button>
-			</form>
+							List<Category> categories=c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute("UserId").toString()));%>
 			
+						     <select name="category_id" class="form-control" required >
+							     <option disabled selected value> -- select a category -- </option>
+							     <%
+									for (int i = 0; i < categories.size(); i++) {
+									%>
+										<option value=<%out.println(categories.get(i).getCategory_id());%>>
+											 <%out.println(categories.get(i).getName());%>
+										 </option>
+									<%
+									}
+									%>
+							 </select>
+						  </div>
+						  
+						
+						  <div class="form-group">
+						    <label for="">Is in stock? </label><br>
+						    <input name="is_in_stock" type="radio" value="true" required  /> Yes<br>
+							<input name="is_in_stock" type="radio" value="false" required /> No
+						    
+						  </div>
+						  
+						  
+						  
+						    <div class="form-group">
+							    <label for="exampleInputEmail1">image</label>
+							     <input type="file" id="file-input" name="image"    required/>
+						  	</div>
+						
+						  
+						  
+						  <button type="submit" class="btn btn-primary">Submit</button>
+						</form>
+						
+						
+						</div>
+						<div class="col-md-6">
+						<img id="preview" src="#" alt="Image preview" width="400">
+						</div>
 			</div>
 	</div>
 
@@ -90,7 +100,25 @@
 
 
 
+  <script>
+  const fileInput = document.getElementById("file-input");
+  const preview = document.getElementById("preview");
 
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = function () {
+      preview.src = reader.result;
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  });
+  </script>
 
 
 

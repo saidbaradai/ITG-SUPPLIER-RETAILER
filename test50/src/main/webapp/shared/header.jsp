@@ -22,7 +22,7 @@
         <a class="nav-link" href="<%=request.getContextPath()%>/admin/list-products">Products</a>
       </li>
     </ul>
-    <span class="navbar-text">
+    <span class="nav-item active "  style="color:green;" >
      Admin : <%=session.getAttribute("userName")%> 
    
     </span>
