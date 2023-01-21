@@ -10,6 +10,13 @@ public class User {
 	
 	
 	
+	public User(int user_id, String name) {
+		super();
+		this.user_id = user_id;
+		this.name = name;
+	}
+
+
 	public User(int user_id, String name, String email, String password, String role) {
 		super();
 		this.user_id = user_id;

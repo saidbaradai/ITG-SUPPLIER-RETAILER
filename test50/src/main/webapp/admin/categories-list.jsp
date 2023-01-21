@@ -18,8 +18,9 @@
 	<jsp:include page="/shared/header.jsp"></jsp:include>
 <div class="container">
 
-				<div class="alert alert-warning" role="alert">
+				<div class="alert alert-info " role="alert">
 					All categories</div>
+					
 					
 					<% Category category=(Category)request.getAttribute("existCategory"); %>
 					<% if (category==null) {%>

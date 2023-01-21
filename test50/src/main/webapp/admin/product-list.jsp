@@ -29,32 +29,35 @@
 	%>
 
 	 
+					<input type="text" id="myInput" onkeyup="SearchFunction()" placeholder="Search for products..">
 					
-					
-		<table class="table">
+		<table id="myTable" class="table sortable ">
+		
+		 <thead>
 		  <tr>
-		  <th>photo</th>
-		    <th>name</th>
-		    <th>description</th>
-		     <th>price</th>
-		    <th>stock_number</th>
-		    <th>in stock ?</th>
-		     <th>category_id</th>
-		    <th>process</th>
+			    <th>photo</th>
+			    <th>Name<span>&uarr;</span></th>
+			    <th>description<span>&uarr;</span></th>
+			    <th>price<span>&uarr;</span></th>
+			    <th>stock_number<span>&uarr;</span></th>
+			    <th>in stock ?<span>&uarr;</span></th>
+			    <th>category_id<span>&uarr;</span></th>
+			    <th>process</th>
 		    
 		  </tr>
+		  </thead>
 		  <c:forEach items="${products }" var="product">
 		    <tr>
 		      <td>
 					<!-- <img src="../images/note9.jpg" width="40px"> -->
-					<img src="<%=request.getContextPath()+"/"%>${product.photo_path}"  width="40px">
+					<img src="<%=request.getContextPath()+"/"%>${product.photo_path}"  height="60px" width="50px">
 					
 				
 		      </td>
 		      <td>${product.name }</td>
 		      <td>${product.description}</td>
-		       <td>${product.price} $</td>
-		      <td>${product.stock_number }</td>
+		       <td >${product.price} $</td>
+		      <td >${product.stock_number }</td>
 		      <td>${product.is_in_stock}</td>
 		       <td>${product.category_id}</td>
 		      <td>
@@ -75,6 +78,7 @@
 			
 	</div>
 
+<script src="<%=request.getContextPath()%>/js/myscripts.js"></script>
 
 
 			 

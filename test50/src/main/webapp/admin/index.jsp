@@ -9,7 +9,7 @@
 	crossorigin="anonymous">
 
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Supplier: <%=session.getAttribute("userName")%></title>
 </head>
 <body>
 

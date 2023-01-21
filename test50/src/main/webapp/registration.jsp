@@ -42,9 +42,9 @@
 							</div>
 
 							<div class="form-group">
-								Admin<input type="radio" id="Admin" name="role" value="admin" style="width:20px">
+								Supplier<input type="radio" id="Admin" name="role" value="admin" style="width:20px">
 								
-								User<input type="radio"id="User" name="role" value="user"  style="width:20px"> 
+								Retailer<input type="radio"id="User" name="role" value="retailer"  style="width:20px"> 
 								
 
 							</div>

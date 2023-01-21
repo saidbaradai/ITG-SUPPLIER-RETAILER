@@ -84,6 +84,7 @@ public class AdminServlet extends HttpServlet {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void SaveUpdatedProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 		ProductDao productDao = new ProductDao();
 
@@ -101,8 +102,10 @@ public class AdminServlet extends HttpServlet {
 		
 		
 		Part filePart=request.getPart("image");
+		System.out.println("here you go :"+filePart.getSubmittedFileName());
 		String photo_pathString =null;
-		if(filePart==null) {
+		
+		if(filePart.getSubmittedFileName()=="") {
 			
 		 photo_pathString =(String)request.getParameter("photo_path");
 		 System.out.println("bir"+photo_pathString);
@@ -206,11 +209,7 @@ public class AdminServlet extends HttpServlet {
 	}
 
 	private void AddNewProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		/*
-		 * CategoryDao c=new CategoryDao();
-		 * c.ListAllCategories(Integer.parseInt(request.getSession().getAttribute(
-		 * "UserId").toString())); request.setAttribute("categories", c);
-		 */
+		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("../admin/product-form.jsp");
 		try {
@@ -227,7 +226,7 @@ public class AdminServlet extends HttpServlet {
 		ProductDao productDao = new ProductDao();
 		int supllier_id = Integer.parseInt(request.getSession().getAttribute("UserId").toString());
 		List<Product> products = productDao.ListAllProducts(supllier_id);
-		//products.forEach(System.out::println);
+		
 
 		request.setAttribute("products", products);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/product-list.jsp");

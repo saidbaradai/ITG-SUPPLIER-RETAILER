@@ -68,20 +68,20 @@ public class LoginServlet extends HttpServlet {
 		            request.getRequestDispatcher("/admin/index.jsp").forward(request, response); 
 		        } 
 		      
-		        else if(userValidate.equals("User_Role"))
+		        else if(userValidate.equals("Retailer_Role"))
 		        {
-		            System.out.println("User's Home");
+		            System.out.println("Retailer's Home");
 		 
 		            HttpSession session = request.getSession();
-		            session.setMaxInactiveInterval(10*60);
-		            session.setAttribute("UserName", userName);
+		           // session.setMaxInactiveInterval(10*60);
+		            session.setAttribute("userName", userName);
 		            //session.setAttribute("UserId",);
-		            //request.setAttribute("userName", userName);
+		            request.setAttribute("userName", userName);
 		            userId = userDao.getUserIdByname(userName);
 					session.setAttribute("UserId",userId);
 		            session.setAttribute("role", userValidate); //I used this in filters
 		 
-		            request.getRequestDispatcher("/user/user-home.jsp").forward(request, response); 
+		            request.getRequestDispatcher("/retailer/index").forward(request, response); 
 		        }
 		        else
 		        {
