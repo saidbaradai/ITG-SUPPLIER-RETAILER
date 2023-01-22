@@ -40,7 +40,7 @@ UserDao userDao = new UserDao();
                         <p class="lead"><%= p.getDescription()%></p>
                         <div class="d-flex">
                         <!-- max value should be depending on stocks (said baradai) -->
-                            <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 5rem" min="1" step="1"  max="<%= p.getStock_number()%>" />
+                            
                             <% if(p.getStock_number()<=0||p.isIs_in_stock()==false) {%>
                             <button class="btn btn-outline-dark flex-shrink-0" type="button" disabled>
                                 <i class="bi-cart-fill me-1"></i>
@@ -49,10 +49,14 @@ UserDao userDao = new UserDao();
                             <%} else{%>
                             
                             
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button" >
-                                <i class="bi-cart-fill me-1"></i>
-                                Add to cart
-                            </button>
+                            <form action="<%=request.getContextPath()%>/retailer/add-to-card" method="get">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="number" name="quantity" value="1" style="max-width: 5rem" min="1" step="1"  max="<%= p.getStock_number()%>" />
+                            <input type="hidden" name="product_id" value="<%=p.getProduct_id()%>"></input>
+	                            <button class="btn btn-outline-dark flex-shrink-0" type="submit" >
+	                                <i class="bi-cart-fill me-1"></i>
+	                                Add to cart
+	                            </button>
+                            </form>
                             
                             <%} %>
                         </div>

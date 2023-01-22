@@ -38,9 +38,9 @@ public class UserDao {
 
 				if (userName.equals(userNameDB) && password.equals(passwordDB) && roleDB.equals("admin"))
 					return "Admin_Role";
-				else if (userName.equals(userNameDB) && password.equals(passwordDB) && roleDB.equals("retailer"))
+				else if (userName.equals(userNameDB) && password.equals(passwordDB) && roleDB.equals("retailer")) {
 					System.out.println("OK its retailer...");
-					return "Retailer_Role";
+					return "Retailer_Role";}
 
 			}
 		} catch (SQLException e) {
@@ -50,6 +50,19 @@ public class UserDao {
 		return "Invalid user credentials";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public String SaveNewUser(User user) {
 
 		Connection con = null;

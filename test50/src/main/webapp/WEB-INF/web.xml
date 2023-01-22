@@ -11,7 +11,15 @@
   </welcome-file-list>
   
   
-  
+<servlet>
+     <servlet-name>productsAPI</servlet-name>
+     <servlet-class>com.ibm.websphere.jaxrs.server.IBMRestServlet</servlet-class>
+     <init-param>
+         <param-name>javax.ws.rs.Application</param-name>
+         <param-value> test50.src.main.java.API.test.java></param-value>
+     </init-param>
+     <load-on-startup>1</load-on-startup>
+</servlet>
 
 </web-app>
 

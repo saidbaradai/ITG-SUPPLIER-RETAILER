@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <style>
 .navbar{
@@ -10,6 +10,9 @@ background-color: #5bc0de !important;
 color:#fff !important;
 font-size:20px;
 }
+
+
+
 
 
 </style>
@@ -26,17 +29,17 @@ font-size:20px;
         <a class="nav-link" href="#">Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/admin/categories-list">Categories</a>
+        <a class="nav-link" href="#">Categories</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<%=request.getContextPath()%>/admin/list-products">Products</a>
+        <a class="nav-link" href="#">Products</a>
       </li>
     </ul>
     
     <span>
     	<form id="search-form" action="<%=request.getContextPath()%>/retailer/search-for-pruducts-by-name" method="get"> 
 		  <input type="text" placeholder="Search..." name="name_for_search">
-		  <button type="submit">Search</button>
+		  <button class="btn btn-info" type="submit">Search</button>
 		</form>
 		    
     </span>
@@ -49,11 +52,18 @@ font-size:20px;
 </svg>
     </span>
     
+    	
+    
      <span class="navbar-text font-weight-bold">
     <form action="<%=request.getContextPath()%>/logout" method="post">
 		<button class="btn btn-info" type="submit"> Logout</button>
 		</form>
     </span>
+    
+   <a href="<%=request.getContextPath()%>/retailer/card">
+   <i class="fas fa-shopping-cart" style="color: #fff; font-size: 20px;"></i>
+   </a>
+    
     
   </div>
 </nav>

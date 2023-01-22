@@ -31,7 +31,7 @@ public class retailerFilter extends HttpFilter implements Filter {
 	        		e.printStackTrace();
 	        	}
 	        } else {
-	        	System.out.println("wrong 2"); 
+	        	 
 	            chain.doFilter(req, res);
 	        }
 		

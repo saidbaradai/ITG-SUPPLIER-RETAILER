@@ -22,7 +22,7 @@
 
 
 
-		<% CategoryDao categoryDao=new CategoryDao();%>
+		<% CategoryDao categoryDao=new CategoryDao(); int c_id;%>
 				
 		<div class="container">
 				<div class="row">
@@ -35,7 +35,7 @@
 				
 						
 							<div class="col-md-4" style="margin-bottom: 2%;">
-								<div class="card border border-success rounded "  >
+								<div class="card border border-success rounded " style="border-color:#5bc0de !important;" >
 						            <div class="d-flex justify-content-between p-3">
 						              <p class="lead mb-0">bir reklam</p>
 						              <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong" style="width: 35px; height: 35px;">

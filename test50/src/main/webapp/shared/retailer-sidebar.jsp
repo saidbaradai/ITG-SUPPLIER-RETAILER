@@ -39,32 +39,13 @@
 		<a  class="list-group-item" href="<%=request.getContextPath()%>/retailer/list-out-of-stock-pruducts">OUT OF STOCKS</a>
 			</div>  
 		</div>
-	</article> 
-	<article class="card-group-item">
-		<header class="card-header"><h6 class="title">Color check</h6></header>
-		<div class="filter-content">
-			<div class="card-body">
-				<label class="btn btn-danger">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Red</span>
-				</label>
-				<label class="btn btn-success">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Green</span>
-				</label>
-				<label class="btn btn-primary">
-				  <input class="" type="checkbox" name="myradio" value="">
-				  <span class="form-check-label">Blue</span>
-				</label>
-			</div> <!-- card-body.// -->
-		</div>
-	</article> <!-- card-group-item.// -->
+
 </div> <!-- card.// -->
 
 
 
 
-<p>Filter  3</p>
+
 
 <div class="card">
 	<article class="card-group-item">
@@ -93,27 +74,27 @@
 		<div class="filter-content">
 			<div class="card-body">
 				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">52</span>
+					<span class="float-right badge badge-light round">14</span>
 				  	<input type="checkbox" class="custom-control-input" id="Check1">
-				  	<label class="custom-control-label" for="Check1">Samsung</label>
+				  	<label class="custom-control-label" for="Check1">saidbaradai</label>
 				</div> <!-- form-check.// -->
 
 				<div class="custom-control custom-checkbox">
-					<span class="float-right badge badge-light round">132</span>
+					<span class="float-right badge badge-light round">2</span>
 				  	<input type="checkbox" class="custom-control-input" id="Check2">
-				 	<label class="custom-control-label" for="Check2">Black berry</label>
+				 	<label class="custom-control-label" for="Check2">apple</label>
 				</div> <!-- form-check.// -->
 
 				<div class="custom-control custom-checkbox">
 					<span class="float-right badge badge-light round">17</span>
 				  	<input type="checkbox" class="custom-control-input" id="Check3">
-				  	<label class="custom-control-label" for="Check3">Samsung</label>
+				  	<label class="custom-control-label" for="Check3">lcwkiki</label>
 				</div> <!-- form-check.// -->
 
 				<div class="custom-control custom-checkbox">
 					<span class="float-right badge badge-light round">7</span>
 				  	<input type="checkbox" class="custom-control-input" id="Check4">
-				  	<label class="custom-control-label" for="Check4">Other Brand</label>
+				  	<label class="custom-control-label" for="Check4">koton</label>
 				</div> <!-- form-check.// -->
 			</div> <!-- card-body.// -->
 		</div>

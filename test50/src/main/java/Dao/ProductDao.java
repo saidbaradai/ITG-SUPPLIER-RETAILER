@@ -155,7 +155,7 @@ public class ProductDao {
             }
             
             
-            preparedStatement.executeUpdate();
+            preparedStatement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }

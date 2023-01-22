@@ -3,54 +3,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="css/card-style.css">
+
+
+<link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link  rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+
+<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
 <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
 
 </head>
 <body>
+<div class="card">
 
-
-
- <!-- Product section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="https://dummyimage.com/600x700/dee2e6/6c757d.jpg" alt="..." /></div>
-                    <div class="col-md-6">
-                        <div class="small mb-1">SKU: BST-498</div>
-                        <h1 class="display-5 fw-bolder">Shop item template</h1>
-                        <div class="fs-5 mb-5">
-                            
-                            <span>$40.00</span>
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                            <div class="col align-self-center text-right text-muted">3 items <i class="fas fa-shopping-cart"></i></div>
                         </div>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
-                        <div class="d-flex">
-                        <!-- max value should be depending on stocks -->
-                            <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 5rem" min="1" step="1"  max="9" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                <i class="bi-cart-fill me-1"></i>
-                                Add to cart
-                            </button>
+                    </div>    
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    
+                     <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    
+                     <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    
+                     <div class="row">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row border-top border-bottom">
+                        <div class="row main align-items-center">
+                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                            <div class="col">
+                                <div class="row text-muted">Shirt</div>
+                                <div class="row">Cotton T-shirt</div>
+                            </div>
+                            <div class="col">
+                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            </div>
+                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        </div>
+                    </div>
+                    <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div><h5><b>Summary</b></h5></div>
+                    <hr>
+                    <div class="row">
+                        <div class="col" style="padding-left:0;">ITEMS 3</div>
+                        <div class="col text-right">&euro; 132.00</div>
+                    </div>
+                    <form>
+                        <p>SHIPPING</p>
+                        <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+                        <p>GIVE CODE</p>
+                        <input id="code" placeholder="Enter your code">
+                    </form>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">TOTAL PRICE</div>
+                        <div class="col text-right">&euro; 137.00</div>
+                    </div>
+                    <button class="btn">CHECKOUT</button>
                 </div>
             </div>
-        </section>
-
-
-
-
-
-
-
-
-
+            
+        </div>
 
 
 

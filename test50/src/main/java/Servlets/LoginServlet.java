@@ -53,7 +53,8 @@ public class LoginServlet extends HttpServlet {
 		    {
 		        String userValidate = userDao.authenticateUser(user);
 		        
-		       
+		        
+		       System.out.println("loginservlet afte auth: userValidate= "+userValidate);
 		        if(userValidate.equals("Admin_Role"))
 		        {
 		            System.out.println("Admin's Home");
@@ -64,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 		            session.setAttribute("role", userValidate); //I used this in filters
 		            userId = userDao.getUserIdByname(userName);
 					session.setAttribute("UserId",userId);
-
+					System.out.println("Admin: "+userValidate);
 		            request.getRequestDispatcher("/admin/index.jsp").forward(request, response); 
 		        } 
 		      
@@ -80,6 +81,7 @@ public class LoginServlet extends HttpServlet {
 		            userId = userDao.getUserIdByname(userName);
 					session.setAttribute("UserId",userId);
 		            session.setAttribute("role", userValidate); //I used this in filters
+		            System.out.println("retailer: "+userValidate);
 		 
 		            request.getRequestDispatcher("/retailer/index").forward(request, response); 
 		        }

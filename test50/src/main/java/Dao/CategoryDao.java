@@ -109,7 +109,7 @@ public class CategoryDao {
 								            }
 								            
 								            
-								            preparedStatement.executeUpdate();
+								            preparedStatement.executeQuery();
 								        } catch (SQLException e) {
 								            e.printStackTrace();
 								        }
